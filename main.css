@@ -1,0 +1,281 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: teko, sans-serif;
+}
+
+.container {
+    max-width: 1024px;/*resolução para monitor de pc e note*/
+    margin: 0 auto;
+    width: 100%; /*o conteúdo irá ocupar 100% o container*/
+}
+
+html {
+    scroll-behavior: smooth; /*propriedade que mexe com o comportamento do scroll, nesse caso se compartará
+    de forma suave */
+    scroll-padding-top: 145px;/*essa propriedade indica onde o scroll irá "grudar", nesse caso eu usei por conta
+    do header que é fixo e estava cobrindo o conteúdo quando clicava nos itens do menu*/
+}
+
+header{
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 1; /*foi necessário por conta da imagens dos livros que acabavam sobrepondo o haeder quando
+    passava o mouse, isso acontecia por conta da propriedade scale*/
+}
+
+
+header,
+footer{
+    background-color: rgb(168, 81, 81);
+    padding-top: 16px;
+}
+
+h1 {
+    margin-bottom: 8px;
+    font-size: 3em;/*a fonte será três vezes maior que o elemento pai*/
+}
+
+.topo,
+.baixo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-hamburguer { /*elemento pai do menu hamburguer*/
+    width: 32px;/*largunra dos risquinhos do menu hamburguer*/
+    cursor: pointer;
+}
+
+.menu-hamburguer span { /*estilizando os risquinhos do menu hemburguer*/
+    width: 100%;/*ele vai ocupar 100% do 32px do elemento pai*/
+    height: 3px;
+    display: block;
+    background-color: black;
+    margin-bottom: 4px;
+}
+
+nav {
+    display: none;/*subindo com os itens do menu, para que assim os mesmos só apareçam quando clicar no menu
+    hamburguer*/
+    background-color: brown;
+    padding: 8px 12px;
+    border-top: 1px solid red;
+    border-bottom: 1px solid red;
+}
+
+nav ul li,
+footer li{
+    list-style: none;
+    margin-right: 12px;
+}
+
+nav ul,
+footer ul{
+    display: flex;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.titulo {
+    margin-bottom: 16px;
+}
+
+.loja {
+    display: grid; /*display de grade*/
+    grid-template-columns: 50% 50%; /*cada coluna ocupará 50% do container*/
+    padding: 32px 0;
+}
+
+.loja img{
+    width: 400px;
+    height: 400px;
+}
+
+h2{
+    padding-bottom: 8px;
+    font-size: 2em;/*tamanha da fonte será 2 vezes maior ao do elemento pai*/
+}
+
+footer img{
+    width: 32px;
+}
+
+ul li p,
+strong,
+del {
+    font-size: 20px;
+}
+
+#lancamentos ul li,
+#promocoes ul li,
+#mais-vendidos ul li{
+    list-style: none;
+}
+
+#lancamentos ul li img:hover,
+#promocoes ul li img:hover,
+#mais-vendidos ul li img:hover{
+    scale: 1.1; /* propriedade que aumenta a escala do elemento*/
+    transition: 0.5s;/*o tempo que de demora para isso acontecer*/
+}
+
+
+#lancamentos ul,
+#promocoes ul,
+#mais-vendidos ul{
+    display: grid;
+    grid-template-columns: repeat(4, 24.25%); /*cada coluna ocupará 24,25% do container contando com o respiro*/
+    column-gap: 1%;/*o respiro entre as colunas será de 1%*/
+    row-gap: 1%;
+}
+
+section ul li img{
+    max-width: 100%;/*estabelecendo um limite na largura para as imagens, pois a imagem estava vazando no ul*/
+    height: 375px;/*estabelecendo uma altura padrão para as imagens dos livros para que assim elas fiquem
+    todas do mesmo tamanho*/
+}
+
+h3 {
+    font-size: 20px;
+}
+
+section {
+    padding: 32px 0;
+}
+
+section p {
+    margin-top: 8px;
+}
+
+section button {
+    width: 100%;
+    padding: 6px;
+    background-color: brown;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid brown;
+    transition: 0.5s;/*tempo de mundança da cor do botão*/
+    font-size: 20px;
+}
+
+section button:hover {
+    background-color: #fff;
+    color: brown;
+    border: 1px solid brown;
+}
+
+.preco {
+    display: block;
+    padding: 12px 0;
+}
+
+del {
+    margin-right: 8px;
+}
+
+hr { 
+    border: 1px solid red;
+}
+
+/*resolução para celular*/
+@media screen and (max-width: 640px){
+    .container{
+        max-width: 85%; /*85% porque eu percebi que o conteúdo da página fica centralizado no container*/
+    }
+    
+    html {
+        scroll-padding-top: 160px;/*essa propriedade indica onde o scroll irá "grudar", nesse caso eu usei por conta
+        do header que é fixo e estava cobrindo o conteúdo quando clicava nos itens do menu*/
+    }
+    
+    h1{
+        font-size: 2em;
+    }
+    
+    nav ul{
+        display: block;
+    }
+    
+    nav ul li a{
+        font-size: 16px;
+        transition: 0.5s;
+    }
+    
+    nav ul li a:hover {
+        border-bottom: 1px solid black;
+    }
+    
+    .loja img{
+        width: 100%;/*aumentei a largura da imagem para 100% do container porque quando diminuia a tela ficava
+        um espaço branco do lado*/
+    }
+    
+    .loja,
+    #lancamentos ul,
+    #promocoes ul,
+    #mais-vendidos ul{
+        display: block; /*tirando o display de grade*/
+    }
+    
+    .itens{ /*mexendo no alinhamento dos itens que estão dentro do li*/
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 32px;
+    }
+}
+
+/*resolução e tablet*/
+@media screen and (min-width: 641px) and (max-width:1023px){
+    .container{
+        max-width: 85%;
+    }
+
+    .loja{
+        display: block;
+        padding-bottom: 0;
+    }
+    
+    .loja img{
+        width: 100%;/*aumentei a largura da imagem para 100% do container porque quando diminuia a tela ficava
+        um espaço branco do lado*/
+    }
+    
+    #lancamentos ul,
+    #promocoes ul,
+    #mais-vendidos ul{
+        display: grid;
+        grid-template-columns: repeat(2, 49%); /*cada coluna da grade ocupará 49% do container*/
+        column-gap: 1%;
+        row-gap: 0%; /*não coloquei o row gap, pois reparei que nessa resolução os itens da grade estavam
+        vazando para section debaixo*/
+        justify-content: center; /*centralizando a grade*/
+        align-items: center; /*centralizando a grade*/
+    }
+
+    .itens{ /*mexendo no alinhamento dos itens que estão dentro do li*/
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+}
+
+/*regra criada para tablet e pc*/
+@media screen and (min-width: 641px){
+    nav ul li a:hover {
+    font-size: 24px;
+    }
+}
