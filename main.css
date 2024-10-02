@@ -45,9 +45,15 @@ h1 {
     align-items: center;
 }
 
+.menu{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
 .menu-hamburguer { /*elemento pai do menu hamburguer*/
     width: 32px;/*largunra dos risquinhos do menu hamburguer*/
-    cursor: pointer;
+    margin-left: 8px;
 }
 
 .menu-hamburguer span { /*estilizando os risquinhos do menu hemburguer*/
@@ -196,6 +202,10 @@ hr {
     html {
         scroll-padding-top: 160px;/*essa propriedade indica onde o scroll irá "grudar", nesse caso eu usei por conta
         do header que é fixo e estava cobrindo o conteúdo quando clicava nos itens do menu*/
+    }
+
+    .menu h3{
+        display: none; /*sumindo com a palavra menu, pois nessa resolução o espaço é pequeno*/
     }
     
     h1{
